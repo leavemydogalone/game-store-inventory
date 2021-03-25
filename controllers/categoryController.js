@@ -14,3 +14,15 @@ exports.category_list = function (req, res) {
       });
     });
 };
+
+exports.category_detail = function (req, res) {
+  Category.findById(req.params.id).exec(function (err, category) {
+    if (err) {
+      return next(err);
+    }
+    res.render('category_detail', {
+      title: category.name,
+      summary: category.summary,
+    });
+  });
+};
