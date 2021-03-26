@@ -14,3 +14,15 @@ exports.designer_list = function (req, res) {
       });
     });
 };
+
+exports.designer_detail = function (req, res) {
+  Designer.findById(req.params.id).exec(function (err, designer) {
+    if (err) {
+      return next(err);
+    }
+    res.render('designer_detail', {
+      title: 'Designer Detail',
+      designer: designer,
+    });
+  });
+};
