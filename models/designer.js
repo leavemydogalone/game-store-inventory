@@ -12,7 +12,7 @@ DesignerSchema.virtual('name').get(function () {
 });
 
 DesignerSchema.virtual('url').get(function () {
-  return '/catalog/author/' + this._id;
+  return '/catalog/designer/' + this._id;
 });
 
 module.exports = mongoose.model('Designer', DesignerSchema);

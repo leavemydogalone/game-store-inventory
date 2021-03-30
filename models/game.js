@@ -6,10 +6,12 @@ var GameSchema = new Schema({
   name: { type: String, required: true },
   designer: { type: Schema.Types.ObjectId, ref: 'Designer', required: true },
   summary: { type: String, required: true },
-  category: [{ type: Schema.Types.ObjectId, ref: 'Category', required: true }],
-  date_published: {
+  category: [
+    { type: Schema.Types.ObjectId, ref: 'Categories', required: true },
+  ],
+  year: {
     type: Schema.Types.ObjectId,
-    ref: 'DatePublished',
+    ref: 'Years',
     required: true,
   },
   stock: { type: Number, required: true },

@@ -1,0 +1,16 @@
+extends layout 
+
+block content 
+  h1= title
+
+  ul 
+    each game in game_list
+      li 
+        a(href=game.url) #{game.name}
+        p= game.designer.name
+        p= game.year
+        //- p= game.year.name 
+        p Copies in stock: #{game.stock}
+    else  
+      li There are no categories
+        
