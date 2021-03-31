@@ -34,7 +34,7 @@ exports.game_list = function (req, res) {
   Game.find()
     .sort([['name', 'ascending']])
     .populate('designer')
-    // .populate('year')
+    .populate('year')
     .exec(function (err, list_games) {
       if (err) {
         return next(err);

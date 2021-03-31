@@ -1,4 +1,5 @@
 var Year = require('../models/year');
+var Game = require('../models/game');
 var async = require('async');
 
 // Display list of all Designers.

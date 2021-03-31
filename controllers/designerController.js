@@ -26,3 +26,7 @@ exports.designer_detail = function (req, res) {
     });
   });
 };
+
+exports.designer_create_get = function (req, res) {
+  res.render('designer_form', { title: 'Add new author' });
+};

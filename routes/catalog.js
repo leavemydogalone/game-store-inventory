@@ -20,6 +20,9 @@ router.get('/games', game_controller.game_list);
 // // POST request for creating Author.
 // router.post('/author/create', author_controller.author_create_post);
 
+// Get requet for new designer form
+router.get('/designer/create', designer_controller.designer_create_get);
+
 // GET request for one designer.
 router.get('/designer/:id', designer_controller.designer_detail);
 

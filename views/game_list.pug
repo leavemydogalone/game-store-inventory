@@ -7,10 +7,11 @@ block content
     each game in game_list
       li 
         a(href=game.url) #{game.name}
-        p= game.designer.name
-        p= game.year
-        //- p= game.year.name 
-        p Copies in stock: #{game.stock}
+        p 
+          a(href=game.designer.url) #{game.designer.name}
+          p 
+            a(href= game.year.url) #{game.year.name}
+            p Copies in stock: #{game.stock}
     else  
       li There are no categories
         
