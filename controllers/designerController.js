@@ -60,7 +60,7 @@ exports.designer_create_post = [
       return;
     } else {
       // Data from form is valid
-      console.log('the error be here');
+
       var designer = new Designer({
         first_name: req.body.first_name,
         last_name: req.body.last_name,
