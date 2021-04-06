@@ -4,3 +4,10 @@ block content
   h1= title 
 
   p= summary
+
+  ul
+    each game in game_list 
+      li 
+        a(href= game.url) #{game.name} 
+    else 
+      li There are no games in this category

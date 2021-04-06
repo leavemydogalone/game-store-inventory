@@ -30,7 +30,7 @@ exports.designer_detail = function (req, res) {
 };
 
 exports.designer_create_get = function (req, res) {
-  res.render('designer_form', { title: 'Add new author' });
+  res.render('designer_form', { title: 'Add new designer' });
 };
 
 exports.designer_create_post = [

@@ -1,4 +1,7 @@
 var Category = require('../models/category');
+var Game = require('../models/game');
+
+var async = require('async');
 
 // Display list of all Designers.
 exports.category_list = function (req, res) {
@@ -15,14 +18,28 @@ exports.category_list = function (req, res) {
     });
 };
 
-exports.category_detail = function (req, res) {
-  Category.findById(req.params.id).exec(function (err, category) {
-    if (err) {
-      return next(err);
+exports.category_detail = function (req, res, next) {
+  async.parallel(
+    {
+      category: function (callback) {
+        Category.findById(req.params.id).exec(callback);
+      },
+      category_games: function (callback) {
+        Game.find({ category: req.params.id })
+          .populate('designer')
+
+          .exec(callback);
+      },
+    },
+    function (err, results) {
+      if (err) {
+        return next(err);
+      }
+      res.render('category_detail', {
+        title: results.category.name,
+        summary: results.category.summary,
+        game_list: results.category_games,
+      });
     }
-    res.render('category_detail', {
-      title: category.name,
-      summary: category.summary,
-    });
-  });
+  );
 };
